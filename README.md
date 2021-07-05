@@ -2,23 +2,23 @@
 
 * Ruby version 2.6.6
 
-* System dependencies
+# System dependencies
 
-* Configuration
+# Configuration
 
-* Database creation
-psql
-CREATE USER postgres WITH SUPERUSER PASSWORD 'postgres';
-CREATE DATABASE bilinho
+# Database creation
+* psql
+* CREATE USER postgres WITH SUPERUSER PASSWORD 'postgres';
+* CREATE DATABASE bilinho
 
-* Database initialization
+# Database initialization
 rails db:migrate
 
-* How to run the test suite
+# How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# Deployment instructions
 bundle install
 
-* ...
+# ...
