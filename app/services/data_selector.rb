@@ -1,0 +1,3 @@
+class DataSelector
+  #codigo
+end

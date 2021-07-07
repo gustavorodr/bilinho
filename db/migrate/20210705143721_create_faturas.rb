@@ -1,13 +1,10 @@
 class CreateFaturas < ActiveRecord::Migration[6.1]
   def self.up
     create_table :faturas do |t|
-      t.money valor
-      t.date vencimento
-      #duvida aqui devo usar: belongs_to?
-      t.references matricula_id
-      #duvida aqui devo usar: belongs_to?
-      t.string status, :limit => 8
-
+      t.money :valor
+      t.date :vencimento
+      t.references :matriculas, null: false, foreign_key: true
+      t.string :status
       t.timestamps
     end
   end

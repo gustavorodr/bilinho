@@ -1,0 +1,3 @@
+class ValueSelector
+  #codigo
+end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   	namespace 'v1' do
   		resources :instituicoes
       resources :alunos
+      resources :matriculas
   	end
   end
 end
