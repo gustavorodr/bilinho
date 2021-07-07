@@ -11,7 +11,7 @@ module Api
 				instituicao = Instituicao.find(params[:id])
 				render json: {status: 'SUCCESS', message:'Instituicao carregada', data:instituicao},status: :ok
 			end
-			# Criar um novo artigo
+			# Criar uma nova instituicao
 			def create
 				instituicao = Instituicao.new(instituicao_params)
 				if instituicao.save
@@ -20,13 +20,13 @@ module Api
 					render json: {status: 'ERROR', message:'Instituicao nao salva', data:instituicao.erros},status: :unprocessable_entity
 				end
 			end
-			# Excluir artigo
+			# Excluir instituicao
 			def destroy
 				instituicao = Instituicao.find(params[:id])
 				instituicao.destroy
 				render json: {status: 'SUCCESS', message:'Instituicao excluida', data:instituicao},status: :ok
 			end
-			# Atualizar um artigo
+			# Atualizar uma instituicao
 			def update
 				instituicao = Instituicao.find(params[:id])
 				if instituicao.update_attributes(instituicao_params)
