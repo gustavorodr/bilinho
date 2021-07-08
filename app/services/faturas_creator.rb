@@ -6,6 +6,9 @@ class FaturaCreator
     @matricula_id = matricula_id
   end
 
+  def index
+    #codigo
+  end
   def create
     #codigo
   end

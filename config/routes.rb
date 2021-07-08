@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   		resources :instituicoes
       resources :alunos
       resources :matriculas
+      resources :faturas
   	end
   end
 end

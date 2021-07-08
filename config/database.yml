@@ -17,3 +17,8 @@ test:
 production:
   <<: *default
   database: bilinho
+  adapter: postgresql
+  host: <%= ENV.fetch('172.17.0.1') %>
+  port: <%= ENV.fetch('5432') %>
+  username: <%= ENV.fetch('admin') %>
+  password: <%= ENV.fetch('admin') %>
