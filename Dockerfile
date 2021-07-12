@@ -1,19 +1,19 @@
 FROM ruby:2.7.0
 
-# Copy application code
+# Copia o código da aplicação
 COPY . /application
-# Change to the application's directory
+# Muda o diretório da aplicação
 WORKDIR /application
 
-# Set Rails environment to production
+# Define o Rails em modo de produção
 ENV RAILS_ENV production
 
-# Install gems, nodejs and precompile the assets
+# Instala as gems, nodejs e pré compila os ativos
 RUN bundle install --deployment --without development test \
     && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
     && apt install -y nodejs
 
-# Start the application server
+# Inicia o servidor da aplicação
 ENTRYPOINT ['./entrypoint.sh']
 
 

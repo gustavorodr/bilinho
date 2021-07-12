@@ -9,7 +9,7 @@ class FaturaCreator
   def create
     for i in 0..@faturas do
       valor = ValueSelector.new(params[@valorTotal, @faturas,i]).valorFinal
-      data = DataSelector.new(params[@dia, i])
+      data = DataSelector.new(params[@dia, i]).data
       fatura = Fatura.new(valor, data, @matricula_id, 'ABERTA')
 			if fatura.save
 				render json: {status: 'SUCCESS', message:'Fatura #{i} salva', data:fatura},status: :ok
