@@ -6,4 +6,5 @@ class Matricula < ApplicationRecord
   validates :instituicao_id, presence: true
   validates :aluno_id, presence: true
   has_many :faturas
+  attr_reader :valor, :quantMatriculas, :vencimento, :id 
 end

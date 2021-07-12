@@ -3,7 +3,8 @@ module Api
 		class FaturasController < ApplicationController   
 			# Listar faturas passando ID da matricula
 			def show
-				#codigo
+				faturas = Faturas.find(params[:matricula_id])
+				render json: {status: 'SUCCESS', message:'Faturas carregadas', data:faturas},status: :ok
 			end
 			# Atualizar uma fatura
 			def update
