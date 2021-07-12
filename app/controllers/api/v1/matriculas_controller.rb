@@ -16,7 +16,7 @@ module Api
 				matricula = Matricula.new(matricula_params)
 				if matricula.save
 					render json: {status: 'SUCCESS', message:'Matricula salva', data:matricula},status: :ok
-					FaturaCreator.new(FaturaCreator.new(matricula.valor, matricula.quantMatriculas, matricula.vencimento, matricula.id]).create
+					FaturaCreator.new(params[matricula.valor, matricula.faturas, matricula.vencimento, matricula.id]).create
         else
 					render json: {status: 'ERROR', message:'Matricula nao salva', data:matricula.erros},status: :unprocessable_entity
 				end
@@ -26,14 +26,13 @@ module Api
 				matricula = Matricula.find(params[:id])
 				matricula.destroy
 				render json: {status: 'SUCCESS', message:'Matricula excluida', data:matricula},status: :ok
-        FaturaCreator.new(matricula.valor, matricula.quantMatriculas, matricula.vencimento, matricula.id]).destroy
+        FaturaCreator.new(params[matricula.valor, matricula.faturas, matricula.vencimento, matricula.id]).destroy
 			end
 			# Atualizar uma matricula
 			def update
 				matricula = Matricula.find(params[:id])
 				if matricula.update_attributes(matricula_params)
 					render json: {status: 'SUCCESS', message:'Matricula atualizada', data:matricula},status: :ok
-					FaturaCreator.new(FaturaCreator.new(matricula.valor, matricula.quantMatriculas, matricula.vencimento, matricula.id]).update
         else
 					render json: {status: 'ERROR', message:'Matricula nao atualizada', data:matricula.erros},status: :unprocessable_entity
 				end

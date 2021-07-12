@@ -1,19 +1,33 @@
 class FaturaCreator
   def initialize(valorTotal, quantMatriculas, dia, matricula_id)
     @valorTotal = valorTotal
-    @quantMatriculas = quantMatriculas
+    @faturas = faturas
     @dia = dia
     @matricula_id = matricula_id
   end
 
   def create
-    #codigo
+    for i in 0..@faturas do
+      valor = ValueSelector.new(params[@valorTotal, @faturas,i]).valorFinal
+      data = DataSelector.new(params[@dia, i])
+      fatura = Fatura.new(valor, data, @matricula_id, 'ABERTA')
+			if fatura.save
+				render json: {status: 'SUCCESS', message:'Fatura #{i} salva', data:fatura},status: :ok
+      else
+				render json: {status: 'ERROR', message:'Fatura #{i} nao salva', data:fatura.erros},status: :unprocessable_entity
+			end
+    end
   end
   def destroy
-    #codigo
+    for i in 0..@faturas do
+      fatura = Fatura.find(params[:matricula_id])
+      fatura.destroy
+			render json: {status: 'SUCCESS', message:'Fatura #{i} excluida', data:fatura},status: :ok
+    end
   end
-  def update
-    #codigo
+  # Parametros aceitos
+  private
+  def fatura_params
+    params.permit(:valor, :vencimento, :matricula_id, :status)
   end
 end
-#FaturaCreator.new(params[:valorTotal, :quantMatriculas, :dia, :matricula_id]).create
