@@ -7,10 +7,11 @@ class FaturaCreator
   end
 
   def create
+    dataSelector = DataSelector.new(params[@dia])
     for i in 0..@faturas do
       valor = ValueSelector.new(params[@valorTotal, @faturas,i]).valorFinal
-      data = DataSelector.new(params[@dia, i]).data
-      fatura = Fatura.new(valor, data, @matricula_id, 'ABERTA')
+      vencimento = dataSelector(i).data
+      fatura = Fatura.new(valor, vencimento, @matricula_id, 'ABERTA')
 			if fatura.save
 				render json: {status: 'SUCCESS', message:'Fatura #{i} salva', data:fatura},status: :ok
       else
