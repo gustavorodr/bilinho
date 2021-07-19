@@ -2,12 +2,8 @@
 
 ##  Bilinho second version with Ruby on Rails e Docker 
 
-{
-  "schemaVersion": 1,
-  "label": "Ruby",
-  "message": "2.7.0",
-  "color": "red"
-}
+![Badge](https://img.shields.io/static/v1?label=Ruby&message=2.7.0&color=red&style=for-the-badge&logo=ghost)
+
 
 # Configuration
 
