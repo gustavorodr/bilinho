@@ -2,7 +2,7 @@
 
 ##  Bilinho second version with Ruby on Rails e Docker 
 
-![Badge](https://img.shields.io/static/v1?label=Ruby&message=2.7.0&color=red&style=for-the-badge&logo=#CC342D)
+![Badge](https://img.shields.io/static/v1?label=Ruby&message=2.7.0&color=red&style=for-the-badge&logo=ruby)
 
 
 # Configuration
