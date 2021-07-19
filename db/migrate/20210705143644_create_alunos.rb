@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAlunos < ActiveRecord::Migration[6.1]
   def self.up
     create_table :alunos do |t|
@@ -10,6 +12,7 @@ class CreateAlunos < ActiveRecord::Migration[6.1]
       t.timestamps
     end
   end
+
   def self.down
     drop_table :alunos
   end

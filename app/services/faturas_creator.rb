@@ -1,5 +1,7 @@
-class FaturaCreator < ApplicationController 
-  def initialize(valorTotal, quantMatriculas, dia, matricula_id)
+# frozen_string_literal: true
+
+class FaturaCreator < ApplicationController
+  def initialize(valorTotal, _quantMatriculas, dia, matricula_id)
     @valorTotal = valorTotal
     @faturas = faturas
     @dia = dia
@@ -9,26 +11,30 @@ class FaturaCreator < ApplicationController
   def create
     dataSelector = DataSelector.new(params[@dia])
     valueSelector = ValueSelector.new(params[@valorTotal, @faturas])
-    for i in 0..@faturas do
+    (0..@faturas).each do |i|
       valor = valueSelector.valor(params[i])
       vencimento = dataSelector.data(params[i])
       fatura = Fatura.new(valor, vencimento, @matricula_id, 'ABERTA')
-			if fatura.save
-				render json: {status: 'SUCCESS', message:'Fatura #{i} salva', data:fatura},status: :ok
+      if fatura.save
+        render json: { status: 'SUCCESS', message: "Fatura #{i} salva", data: fatura }, status: :ok
       else
-				render json: {status: 'ERROR', message:'Fatura #{i} nao salva', data:fatura.erros},status: :unprocessable_entity
-			end
+        render json: { status: 'ERROR', message: "Fatura #{i} nao salva", data: fatura.erros },
+               status: :unprocessable_entity
+      end
     end
   end
+
   def destroy
-    for i in 0..@faturas do
+    (0..@faturas).each do |_i|
       fatura = Fatura.find(params[:matricula_id])
       fatura.destroy
-			render json: {status: 'SUCCESS', message:'Fatura #{i} excluida', data:fatura},status: :ok
+      render json: { status: 'SUCCESS', message: "Fatura #{i} excluida", data: fatura }, status: :ok
     end
   end
   # Parametros aceitos
+
   private
+
   def fatura_params
     params.permit(:valor, :vencimento, :matricula_id, :status)
   end

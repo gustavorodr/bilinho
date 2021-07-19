@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFaturas < ActiveRecord::Migration[6.1]
   def self.up
     create_table :faturas do |t|
@@ -11,5 +13,5 @@ class CreateFaturas < ActiveRecord::Migration[6.1]
 
   def self.down
     drop_table :faturas
- end
+  end
 end
