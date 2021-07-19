@@ -1,7 +1,7 @@
 # Bilinho
 
 ## Sobre
-### Segunda versão do Bilinho usando Ruby on Rails e Docker 
+#### Segunda versão do Bilinho usando Ruby on Rails e Docker 
 
 ![Badge](https://img.shields.io/static/v1?label=Project&message=V1.0.0&color=blue&style=for-the-badge) ![Badge](https://img.shields.io/static/v1?label=Ruby&message=2.7.0&color=red&style=for-the-badge&logo=ruby) ![Badge](https://img.shields.io/static/v1?label=Rails&message=6.1.4&color=red&style=for-the-badge)
 
@@ -10,6 +10,7 @@ Indice
 <!--ts-->
    * [Sobre](#Sobre)
    * [Indice](#Indice)
+   * [Features](#Features)
    * [Instalação](#instalacao)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
@@ -21,9 +22,9 @@ Indice
    * [Tecnologias](#tecnologias)
 <!--te-->
 
-<h4 align="center"> 
+<h2 align="center"> 
 	🚧  Bilinho com Ruby on Rails 🚀 Em construção...  🚧
-</h4>
+</h2>
 
 ### Features
 
@@ -32,15 +33,30 @@ Indice
 - [x] Matricula e criação de faturas
 - [x] Destroy altomatico das faturas com destroy de matricula
 - [ ] Destroy altomático de matriculas por destroy de aluno ou instituição 
-- [ ] Dockerização completa da aplicação
+- [ ] Aplicação Dockerizada por completo
 
-# Configuration
+## Instalação
+
+### Instalar a ultima versão do PostgreSQL
+```bash
+# Create the file repository configuration:
+$ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+# Import the repository signing key:
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+# Update the package lists:
+$ sudo apt-get update
+
+# Install the latest version of PostgreSQL.
+$ sudo apt-get -y install postgresql
 
 # Database creation on POSTRGRESQL
+$ psql
+$#-> CREATE USER admin WITH SUPERUSER PASSWORD 'admin';
+$#-> CREATE DATABASE bilinho
 
-
-* CREATE USER admin WITH SUPERUSER PASSWORD 'admin';
-* CREATE DATABASE bilinho
+```
 
 # Database initialization
 
