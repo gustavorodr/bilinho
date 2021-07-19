@@ -1,6 +1,7 @@
 # Bilinho
 
-##  Segunda versão do Bilinho usando Ruby on Rails e Docker 
+## Sobre
+### Segunda versão do Bilinho usando Ruby on Rails e Docker 
 
 ![Badge](https://img.shields.io/static/v1?label=Project&message=V1.0.0&color=blue&style=for-the-badge) ![Badge](https://img.shields.io/static/v1?label=Ruby&message=2.7.0&color=red&style=for-the-badge&logo=ruby) ![Badge](https://img.shields.io/static/v1?label=Rails&message=6.1.4&color=red&style=for-the-badge)
 
@@ -8,7 +9,7 @@ Indice
 =================
 <!--ts-->
    * [Sobre](#Sobre)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Indice](#Indice)
    * [Instalação](#instalacao)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
