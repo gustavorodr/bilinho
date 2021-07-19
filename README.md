@@ -24,11 +24,20 @@ Indice
 	🚧  Bilinho com Ruby on Rails 🚀 Em construção...  🚧
 </h4>
 
+### Features
+
+- [x] Cadastro de aluno
+- [x] Cadastro de instituição de ensino
+- [x] Matricula e criação de faturas
+- [x] Destroy altomatico das faturas com destroy de matricula
+- [ ] Destroy altomático de matriculas por destroy de aluno ou instituição 
+- [ ] Dockerização completa da aplicação
+
 # Configuration
 
-# Database creation
+# Database creation on POSTRGRESQL
 
-psql
+
 * CREATE USER admin WITH SUPERUSER PASSWORD 'admin';
 * CREATE DATABASE bilinho
 
