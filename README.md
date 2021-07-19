@@ -1,7 +1,13 @@
 # Bilinho
 
-* Ruby version 2.7.0
-* Other system dependencies
+##  Bilinho second version with Ruby on Rails e Docker 
+
+{
+  "schemaVersion": 1,
+  "label": "Ruby",
+  "message": "2.7.0",
+  "color": "red"
+}
 
 # Configuration
 
@@ -24,3 +30,4 @@ psql
  * bundle install
 
 # ...
+

@@ -1,4 +1,4 @@
-class FaturaCreator
+class FaturaCreator < ApplicationController 
   def initialize(valorTotal, quantMatriculas, dia, matricula_id)
     @valorTotal = valorTotal
     @faturas = faturas
@@ -8,9 +8,10 @@ class FaturaCreator
 
   def create
     dataSelector = DataSelector.new(params[@dia])
+    valueSelector = ValueSelector.new(params[@valorTotal, @faturas])
     for i in 0..@faturas do
-      valor = ValueSelector.new(params[@valorTotal, @faturas,i]).valorFinal
-      vencimento = dataSelector(i).data
+      valor = valueSelector.valor(params[i])
+      vencimento = dataSelector.data(params[i])
       fatura = Fatura.new(valor, vencimento, @matricula_id, 'ABERTA')
 			if fatura.save
 				render json: {status: 'SUCCESS', message:'Fatura #{i} salva', data:fatura},status: :ok

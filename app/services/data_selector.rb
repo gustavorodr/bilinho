@@ -12,6 +12,7 @@ class DataSelector
 
     @ano = t.year
   end
+  #adotar regra pro dia 31 sempre voltar pro ultimo dia do mês
 
   def data(index)
     if @mes < 12
@@ -20,6 +21,7 @@ class DataSelector
       @mes = 1
       @ano += 1
     end
-    @data = Date.new(@ano, @mes, @vencimento)
+    finalDate = Date.new(@ano, @mes, @vencimento)
+    return finalDate
   end
 end
