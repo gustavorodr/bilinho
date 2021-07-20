@@ -20,6 +20,7 @@ Indice
       * [Combo](#combo)
    * [Tests](#testes)
    * [Tecnologias](#tecnologias)
+   * [Autor](#Autor)
 <!--te-->
 
 <h3 align="center"> 
@@ -93,16 +94,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [PostgreSQL](https://www.postgresql.org/)
 - [Docker](https://www.docker.com/)
 
-# Database initialization
+### Autor
+---
 
-* rails db:migrate
+<a href="https://www.linkedin.com/in/gustavo-rodrigues-7223b3157/">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/38133108?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Gustavo Costa</b></sub></a> <a href="https://www.linkedin.com/in/gustavo-rodrigues-7223b3157/" title="Linkedin"></a>
 
-# How to run the test suite
-
-# Services (job queues, cache servers, search engines, etc.)
-
-# Deployment instructions
-
- * bundle install
-
-# ...
+Feito por Gustavo Costa 👋🏽 Entre em contato!
