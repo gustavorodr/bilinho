@@ -3,8 +3,8 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: 127.0.0.1
-  username: admin
-  password: admin
+  username: postgres
+  password: postgres
   timeout: 5000
 
 development:
@@ -16,9 +16,8 @@ test:
 
 production:
   <<: *default
-  database: bilinho
   adapter: postgresql
-  host: <%= ENV.fetch('172.17.0.1') %>
-  port: <%= ENV.fetch('5432') %>
-  username: <%= ENV.fetch('admin') %>
-  password: <%= ENV.fetch('admin') %>
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  port: <%= ENV.fetch('DATABASE_PORT') %>
+  username: <%= ENV.fetch('DATABASE_USERNAME') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') %>

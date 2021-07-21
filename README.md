@@ -101,7 +101,6 @@ $ sudo service postgresql restart
 $ psql -U postgres
 
 $#-> ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';
-$#-> CREATE DATABASE bilinho
 
 # Alterar a palavra 'trust' por 'md5' em:
 ...
@@ -121,6 +120,36 @@ $ cd bilinho
 ### Instalando dependencias
 ```bash
 $ bundle install
+
+# migra o data base
+$ bundle exec rake db:create db:migrate
+```
+### Instalando Docker
+```bash
+$ sudo apt-get update
+
+$ sudo apt-get install
+    apt-transport-https
+    ca-certificates
+    curl
+    software-properties-common
+
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+$ sudo add-apt-repository
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu
+    $(lsb_release -cs)
+    stable"
+
+$ sudo apt-get install docker-ce
+
+$ sudo docker build . -t bilinho
+
+$ sudo docker run --name bilinho-pg
+            -e POSTGRES_USER=postgres
+            -e POSTGRES_PASSWORD=postgres
+            -p 5432:5432
+            -d postgres
 ```
 ## Tecnologias
 
