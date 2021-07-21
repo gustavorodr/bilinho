@@ -120,9 +120,6 @@ $ cd bilinho
 ### Instalando dependencias
 ```bash
 $ bundle install
-
-# migra o data base
-$ bundle exec rake db:create db:migrate
 ```
 ### Instalando Docker
 ```bash
@@ -145,11 +142,35 @@ $ sudo apt-get install docker-ce
 
 $ sudo docker build . -t bilinho
 
+# Creating the PostgreSQL container
 $ sudo docker run --name bilinho-pg
             -e POSTGRES_USER=postgres
             -e POSTGRES_PASSWORD=postgres
             -p 5432:5432
             -d postgres
+
+# Creating the Redis container
+$ sudo docker run --name bilinho-redis \
+            -p 6379:6379 \
+            -d redis
+
+# Creating the application’s container
+$ sudo docker ps
+
+# Create the container for the image
+$ sudo docker run --name bilinho-web \
+            -e DATABASE_HOST=172.17.0.1 \
+            -e DATABASE_PORT=5432 \
+            -e DATABASE_USERNAME=postgres \
+            -e DATABASE_PASSWORD=postgres \
+            -e REDIS_URL=redis://172.17.0.1:6379/1 \
+            -p 3000:3000 \
+            bilinho
+# Connect to the container and check the logs
+$ sudo docker exec -it bilinho-web bash
+
+# create/migrate the database
+$ bundle exec rake db:create db:migrate
 ```
 ## Tecnologias
 
