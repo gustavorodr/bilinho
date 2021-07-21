@@ -14,7 +14,6 @@ class DataSelector
 
     @ano = t.year
   end
-  # adotar regra pro dia 31 sempre voltar pro ultimo dia do mês
 
   def data(index)
     if @mes < 12

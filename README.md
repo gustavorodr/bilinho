@@ -31,10 +31,8 @@ Indice
 
 - [x] Cadastro de aluno
 - [x] Cadastro de instituição de ensino
-- [x] Matricula e criação de faturas
-- [x] Destroy altomatico das faturas com destroy de matricula
-- [ ] Destroy altomático de matriculas por destroy de aluno ou instituição 
-- [ ] Aplicação Dockerizada por completo
+- [x] Matricula e criação automática de faturas
+- [ ] Soft destroy
 
 ## Instalação
 
@@ -68,10 +66,15 @@ $ sudo apt-get update && sudo apt-get install yarn
 $ \curl -sSL https://get.rvm.io | bash
 
 # iniciar o rvm
- 	
 $ source ~/.rvm/scripts/rvm
 ```
-### Instalar a ultima versão do PostgreSQL
+### Ruby
+```bash
+$ rvm install 2.7.0
+
+$ rvm use 2.7.0
+```
+### Instalar e configurar a ultima versão do PostgreSQL
 
 ```bash
 # Create the file repository configuration:
@@ -86,11 +89,45 @@ $ sudo apt-get update
 # Install the latest version of PostgreSQL.
 $ sudo apt-get -y install postgresql
 
+# Instalar uma dependência da Gem pg
+$ sudo apt-get install libpq-dev
+
+# Editar o arquivo localizado em:
+$ cd /etc/postgresql/12/main/pg_hba.conf
+
+# Alterar a palavra 'peer' por 'trust' em:
+...
+# Database administrative login by Unix domain socket
+local        all postgres trust
+...
+
+# Reiniciar o serviço do postgres
+$ sudo service postgresql restart
+
 # Database creation on POSTRGRESQL
-$ psql
-$#-> CREATE USER admin WITH SUPERUSER PASSWORD 'admin';
+$ psql -U postgres
+
+$#-> ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';
 $#-> CREATE DATABASE bilinho
 
+# Alterar a palavra 'trust' por 'md5' em:
+...
+# Database administrative login by Unix domain socket
+local        all postgres md5
+...
+
+# Reiniciar novamente o postgres
+sudo service postgresql restart
+```
+### Clonando o Repósitorio
+```bash
+$ git clone https://github.com/gustavorodr/bilinho.git
+
+$ cd bilinho
+```
+### Instalando dependencias
+```bash
+$ bundle install
 ```
 ### Tecnologias
 
