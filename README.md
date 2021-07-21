@@ -84,16 +84,12 @@ $ sudo make install
 ### Instalar e configurar a ultima versão do PostgreSQL
 
 ```bash
-# Create the file repository configuration:
 $ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
-# Import the repository signing key:
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
-# Update the package lists:
 $ sudo apt-get update
 
-# Install the latest version of PostgreSQL.
 $ sudo apt-get -y install postgresql
 
 # Instalar uma dependência da Gem pg
@@ -135,7 +131,7 @@ $ cd bilinho
 ```bash
 $ bundle install
 ```
-### Instalando Docker
+### Instalando e configurando o Docker
 ```bash
 $ sudo apt-get update
 
@@ -156,22 +152,22 @@ $ sudo apt-get install docker-ce
 
 $ sudo docker build . -t bilinho
 
-# Creating the PostgreSQL container
+# Criando o container do PostgreSQL 
 $ sudo docker run --name bilinho-pg
             -e POSTGRES_USER=postgres
             -e POSTGRES_PASSWORD=postgres
             -p 5432:5432
             -d postgres
 
-# Creating the Redis container
+# Criando o container do Redis
 $ sudo docker run --name bilinho-redis \
             -p 6379:6379 \
             -d redis
 
-# Creating the application’s container
+# Criando o container de aplicação
 $ sudo docker ps
 
-# Create the container for the image
+# Criando o container para a imagem criada acima
 $ sudo docker run --name bilinho-web \
             -e DATABASE_HOST=172.17.0.1 \
             -e DATABASE_PORT=5432 \
@@ -180,10 +176,10 @@ $ sudo docker run --name bilinho-web \
             -e REDIS_URL=redis://172.17.0.1:6379/1 \
             -p 3000:3000 \
             bilinho
-# Connect to the container and check the logs
+# Conectando ao container e checando os logs
 $ sudo docker exec -it bilinho-web bash
 
-# create/migrate the database
+# Criando e migrando o database
 $ bundle exec rake db:create db:migrate
 ```
 ## Tecnologias
