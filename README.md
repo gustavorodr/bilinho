@@ -67,6 +67,20 @@ $ rvm install 2.7.0
 
 $ rvm use 2.7.0
 ```
+### Redis
+```bash
+$ wget http://download.redis.io/redis-stable.tar.gz
+
+$ tar xvzf redis-stable.tar.gz
+
+$ cd redis-stable
+
+$ make
+
+$ make test
+
+$ sudo make install
+```
 ### Instalar e configurar a ultima versão do PostgreSQL
 
 ```bash
