@@ -39,7 +39,6 @@ Indice
 ## Instalação
 
 ### Instalar Git
-
 ```bash
 $ sudo apt-get update
 
@@ -63,6 +62,14 @@ $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 $ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 $ sudo apt-get update && sudo apt-get install yarn
+```
+### Instalando RVM: Ruby Version Manager
+```bash
+$ \curl -sSL https://get.rvm.io | bash
+
+# iniciar o rvm
+ 	
+$ source ~/.rvm/scripts/rvm
 ```
 ### Instalar a ultima versão do PostgreSQL
 
