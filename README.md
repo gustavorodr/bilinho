@@ -12,13 +12,6 @@ Indice
    * [Indice](#Indice)
    * [Features](#Features)
    * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-   * [Tests](#testes)
    * [Tecnologias](#tecnologias)
    * [Autor](#Autor)
 <!--te-->
@@ -129,7 +122,7 @@ $ cd bilinho
 ```bash
 $ bundle install
 ```
-### Tecnologias
+## Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
@@ -138,7 +131,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [PostgreSQL](https://www.postgresql.org/)
 - [Docker](https://www.docker.com/)
 
-### Autor
+## Autor
 ---
 
 <a href="https://www.linkedin.com/in/gustavo-rodrigues-7223b3157/">
